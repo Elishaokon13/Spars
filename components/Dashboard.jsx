@@ -94,12 +94,12 @@ const Dashboard = () => {
                         </div>
                         <p className='text-sm text-[#14c2a3]'>Locked supply</p>
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
+                    {/* <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
                         <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
                         <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
+                    </div> */}
                 </div>
             </div>            
             {/* account */}
@@ -115,18 +115,20 @@ const Dashboard = () => {
                 </div>
             </div>
             {/* our token */}
-            <div className='grid lg:grid-cols-2 gap-3 w-full text-white '>
+            <div className='grid lg:grid-rows-4 gap-3 w-full text-white '>
                 <p>Our token</p>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex  lg:w-[50%] gap-2'>
+                   <p className='text-gray-500 text-sm'>Your PARS Holdings</p>
+                   <p className='text-black dark:text-white text-xl font-semibold'>{tokenBalance} PARS</p>
+                   <i className='text-green-700 text-xl font-semibold'> ~$0.00 </i>
+                </div>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex  lg:w-[50%] w- gap-2'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex  lg:w-[50%] w-[50px] h-[150px] gap-2'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
-                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[150px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
             </div>            
