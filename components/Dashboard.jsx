@@ -120,19 +120,19 @@ const Dashboard = () => {
             {/* our token */}
             <div className='grid lg:grid-cols-3 gap-3 w-full text-white '>
                 <p>PARS Token</p>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[150px]'>
+                <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
                             <p className='text-xl'>Total Holding</p>
                             <p className='text-2xl'>{tokenBalance}b</p>
                         </div>
                 </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[150px]'>
+                <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[150px]'>
+                <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[150px]'>
+                <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
             </div>            
