@@ -117,7 +117,16 @@ const Dashboard = () => {
             {/* our token */}
             <div className='flex flex-col gap-3 items-start  w-full '>
                 <p>Our token</p>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-full h-[150px]'>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                </div>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                </div>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
+                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                </div>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                 </div>
             </div>            
