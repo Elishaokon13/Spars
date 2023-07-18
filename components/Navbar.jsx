@@ -17,8 +17,8 @@ function Navbar() {
   return (
     <div>
       <div className='mx-auto bg-[#0c1226] text-white px-[20px]'>
-        <div className='py-4 justify-between items-center hidden md:flex'>
-          <div className='w-[40px] h-6'><Image src={logo} alt="Logo" /></div>
+        <div className='py-2 justify-between items-center hidden md:flex'>
+          <div className='w-[90px] h-6'><Image src={logo} alt="Logo" /></div>
           <div className='w-full lg:w-[40%]  flex items-center justify-end mt-2'>
             <ConnectWallet />
           </div>
@@ -27,7 +27,7 @@ function Navbar() {
         {/* Mobile Nav */}
 
         <div className='md:hidden py-4 justify-between flex items-center'>
-          <div className='w-[40px]'><Image src={logo} alt="Logo" /></div>
+          <div className='w-[40px] h-6'><Image src={logo} alt="Logo" /></div>
 
           {mobileMenuOpen === (true) ? (
             <button onClick={() => setMobileMenuOpen(false)}><BsX size={25} /></button>
