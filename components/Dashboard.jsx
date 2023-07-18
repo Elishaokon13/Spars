@@ -34,26 +34,6 @@ const Dashboard = () => {
 
     return (
         <div className='w-full lg:pr-16 flex flex-col gap-8'>
-            {/* account */}
-            <div className='flex flex-col gap-3 items-start  w-full'>
-                <p>Your account</p>
-                {/* <div className='grid lg:grid-cols-2 gap-3  w-full'>
-                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
-                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
-                </div> */}
-            </div>
-            {/* our token */}
-            <div className='flex flex-col gap-3 items-start  w-full '>
-                <p>Our token</p>
-                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-full h-[150px]'>
-                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                </div>
-
-            </div>
             {/* our supply */}
             <div className='flex flex-col gap-3 items-start  w-full '>
                 <p >Our supply</p>
@@ -79,7 +59,26 @@ const Dashboard = () => {
                         <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                     </div>
                 </div>
+            </div>            
+            {/* account */}
+            <div className='flex flex-col gap-3 items-start  w-full'>
+                <p>Your account</p>
+                <div className='grid lg:grid-cols-2 gap-3  w-full'>
+                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
+                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    </div>
+                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
+                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    </div>
+                </div>
             </div>
+            {/* our token */}
+            <div className='flex flex-col gap-3 items-start  w-full '>
+                <p>Our token</p>
+                <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-full h-[150px]'>
+                    <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                </div>
+            </div>            
         </div>
     )
 }
