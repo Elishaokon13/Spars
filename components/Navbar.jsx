@@ -16,9 +16,9 @@ function Navbar() {
 
   return (
     <div>
-      <div className='container mx-auto bg-[#0c1226] text-white px-[20px]'>
+      <div className='mx-auto bg-[#0c1226] text-white px-[20px]'>
         <div className='py-4 justify-between items-center hidden md:flex'>
-          <div className='w-[40px]'><Image src={logo} alt="Logo" /></div>
+          <div className='w-[40px] h-6'><Image src={logo} alt="Logo" /></div>
           <div className='w-full lg:w-[40%]  flex items-center justify-end mt-2'>
             <ConnectWallet />
           </div>
