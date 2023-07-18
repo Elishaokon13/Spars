@@ -4,6 +4,8 @@ import { BsX } from 'react-icons/bs'
 import logo from '../assets/logo.png'
 
 function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div>
       <div className='container mx-auto text-white px-[20px]'>
