@@ -106,16 +106,16 @@ const Dashboard = () => {
             <div className='flex flex-col gap-3 items-start  w-full'>
                 <p>Your account</p>
                 <div className='grid lg:grid-cols-2 gap-3  w-full'>
-                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
                     <div>Wallet Address: {connectedAddress}</div>
                     </div>
-                    <div className='rounded-lg border-[4px]  border-dashed flex items-center justify-center h-[150px]'>
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
                     <div>Token Balance: {tokenBalance}</div>
                     </div>
                 </div>
             </div>
             {/* our token */}
-            <div className='flex flex-col gap-3 items-start  w-full '>
+            <div className='grid lg:grid-cols-2 gap-3 w-full text-white '>
                 <p>Our token</p>
                 <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center  lg:w-[50%] w-[50px] h-[50px]'>
                     <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
