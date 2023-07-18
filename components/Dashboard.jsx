@@ -118,7 +118,7 @@ const Dashboard = () => {
                 </div>
             </div>
             {/* our token */}
-            <div className='grid lg:grid-cols-3 gap-3 w-full text-white '>
+            <div className='grid lg:grid-cols-2 gap-3 w-full text-white'>
                 <p>PARS Token</p>
                 <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
