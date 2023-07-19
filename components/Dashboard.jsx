@@ -175,7 +175,7 @@ const Dashboard = () => {
                         <p className='text-xl'>Total Payout</p>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <button onClick={handleClaim} className='text-xl'>Claim Rewards</button>
+                        <Button onClick={handleClaim} className='text-xl'>Claim Rewards</Button>
                     </div>
 
                 </div>
