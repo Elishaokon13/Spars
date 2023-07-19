@@ -104,7 +104,7 @@ const Dashboard = () => {
                     <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
                             <p className='text-xl'>Total suppy</p>
-                            <p className='text-2xl'>{totalSupply}b</p>
+                            <p className='text-2xl'>{totalSupply}B</p>
                         </div>
                         <p className='text-sm text-[#14c2a3]'>ETH + BSC + POLYGON</p>
                     </div>
