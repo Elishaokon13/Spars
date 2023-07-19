@@ -17,8 +17,8 @@ const Dashboard = () => {
             'https://api.dexscreener.com/latest/dex/pairs/bsc/0x116916C283C5D70D6F6CF4faEb55740d09fFf191'
           );
           const { data } = response;
-          // Assuming the API response contains a property named "liquidity" with the value in USD
-          setLiquidity(data.liquidity);
+          const liquidityValue = data.pairs[0]?.liquidity?.usd || null;
+          setLiquidity(liquidityValue);
         } catch (error) {
           console.error('Failed to fetch liquidity:', error);
         }
@@ -108,7 +108,7 @@ const Dashboard = () => {
                         <div className=' flex items-center justify-between w-full'>
                             <p className='text-xl'>Bridge liquidity</p>
                             {liquidity !== null ? (
-                                <p className='text-2xl'>Liquidity: {liquidity} USD</p>
+                                <p className='text-2xl'>${liquidity}</p>
                                     ) : (
                                         <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                                     )}
