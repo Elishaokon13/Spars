@@ -6,12 +6,19 @@ import Image from 'next/image';
 // import contract from './contract';
 // import { Button } from '@mui/material';
 
+// newly added
+import BalanceOf from './Read Contract/balance';
+import DividendTokenBalanceOf from './Read Contract/dividendToken';
+import DividendHolders from './Read Contract/dividendHolders';
+import TotalPayout from './Read Contract/totalPayout'
+
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
     const [tokenBalance, setTokenBalance] = useState('');
     const [connectedAddress, setConnectedAddress] = useState('');
     const [liquidity, setLiquidity] = useState(null);
     const [tokenPrice, setTokenPrice] = useState(null);
+  
 
     useEffect(() => {
         const fetchData = async () => {
@@ -132,16 +139,22 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Your Dividend %</p>
+                        <p className='text-xl'>Your Dividend holdings </p>
+                        
+                        <BalanceOf/>
+                        
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Dividend Holders</p>
+                        <p className='text-xl'>Next Payout</p>
+                        
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Token Price</p>
+                        <p className='text-xl'>Dividend holders</p>
+                        <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Total Payout</p>
+                        <TotalPayout/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Claim Rewards</p>
