@@ -6,9 +6,26 @@ import Image from 'next/image';
 
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
-    const [liquidity, setLiquidity] = useState('');
     const [tokenBalance, setTokenBalance] = useState('');
     const [connectedAddress, setConnectedAddress] = useState('');
+    const [liquidity, setLiquidity] = useState(null);
+
+    useEffect(() => {
+      const fetchLiquidity = async () => {
+        try {
+          const response = await axios.get(
+            'https://api.dexscreener.com/latest/dex/pairs/bsc/0x116916C283C5D70D6F6CF4faEb55740d09fFf191'
+          );
+          const { data } = response;
+          // Assuming the API response contains a property named "liquidity" with the value in USD
+          setLiquidity(data.liquidity);
+        } catch (error) {
+          console.error('Failed to fetch liquidity:', error);
+        }
+      };
+  
+      fetchLiquidity();
+    }, []);
   
     const fetchTokenBalance = async (walletAddress, contractAddress, contractABI) => {
       try {
@@ -90,7 +107,11 @@ const Dashboard = () => {
                     <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
                             <p className='text-xl'>Bridge liquidity</p>
-                            <p className='text-2xl'>$15k</p>
+                            {liquidity !== null ? (
+                                <p className='text-2xl'>Liquidity: {liquidity} USD</p>
+                                    ) : (
+                                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                                    )}
                         </div>
                         <p className='text-sm text-[#14c2a3]'>Locked supply</p>
                     </div>
