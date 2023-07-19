@@ -9,22 +9,24 @@ const Dashboard = () => {
     const [tokenBalance, setTokenBalance] = useState('');
     const [connectedAddress, setConnectedAddress] = useState('');
     const [liquidity, setLiquidity] = useState(null);
+    const [tokenPrice, setTokenPrice] = useState(null);
 
     useEffect(() => {
-        const fetchLiquidity = async () => {
+        const fetchData = async () => {
             try {
                 const response = await axios.get(
                     'https://api.dexscreener.com/latest/dex/pairs/bsc/0x116916C283C5D70D6F6CF4faEb55740d09fFf191'
                 );
                 const { data } = response;
                 const liquidityValue = data.pairs[0]?.liquidity?.usd || null;
+                const tokenPriceValue = data.pairs[0]?.priceUsd || null;
                 setLiquidity(liquidityValue);
+                setTokenPrice(tokenPriceValue);
             } catch (error) {
-                console.error('Failed to fetch liquidity:', error);
+                console.error('Failed to fetch data:', error);
             }
         };
-
-        fetchLiquidity();
+        fetchData();
     }, []);
 
     const fetchTokenBalance = async (walletAddress, contractAddress, contractABI) => {
@@ -91,6 +93,8 @@ const Dashboard = () => {
     }, []);
 
 
+
+
     return (
         <div className='w-full lg:pr-16 flex flex-col gap-8'>
             {/* our supply */}
@@ -115,26 +119,19 @@ const Dashboard = () => {
                         </div>
                         <p className='text-sm text-[#14c2a3]'>Locked supply</p>
                     </div>
-                    {/* <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div> */}
                 </div>
             </div>
             {/* our token */}
             <div className='flex flex-col gap-2 items-start  w-full '>
                 <p >Our supply</p>
-                <div className='grid lg:grid-cols-4 gap-3 w-full text-white'>
+                <div className='grid lg:grid-cols-3 gap-3 w-full text-white'>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
-                    </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        <p className='text-xl'>Token Price</p>
+                        {tokenPrice !== null ? (
+                            <p className='text-2xl'>${tokenPrice}</p>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
                         <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
