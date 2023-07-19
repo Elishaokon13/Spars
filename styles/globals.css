@@ -29,7 +29,7 @@ body::-webkit-scrollbar{
   background: black;
 }
 
-body::-webkit-scrollbar-thumb, .body{
+body::-webkit-scrollbar-thumb{
   width: 0px;
   background: black;
 }
