@@ -125,10 +125,10 @@ const Dashboard = () => {
             <div className='flex flex-col gap-2 items-start  w-full '>
                 <p >Our supply</p>
                 <div className='grid lg:grid-cols-3 gap-3 w-full text-white'>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Token Price</p>
                         {tokenPrice !== null ? (
-                            <p className='text-2xl'>${tokenPrice}</p>
+                            <p className='text-2xl text-[#14c2a3]'>${tokenPrice}</p>
                         ) : (
                             <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                         )}
