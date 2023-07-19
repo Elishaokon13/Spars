@@ -3,7 +3,15 @@ import fetch from 'isomorphic-unfetch';
 import axios from 'axios';
 import thunderBolt from '../assets/thunder-bolt1.png'
 import Image from 'next/image';
-import { Button } from '@mui/material';
+// import contract from './contract';
+// import { Button } from '@mui/material';
+
+// newly added
+import BalanceOf from './Read Contract/balance';
+import DividendTokenBalanceOf from './Read Contract/dividendToken';
+import DividendHolders from './Read Contract/dividendHolders';
+import TotalPayout from './Read Contract/totalPayout'
+import Claim from './Read Contract/claim';
 
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
@@ -11,6 +19,59 @@ const Dashboard = () => {
     const [connectedAddress, setConnectedAddress] = useState('');
     const [liquidity, setLiquidity] = useState(null);
     const [tokenPrice, setTokenPrice] = useState(null);
+
+    const [timeRemaining, setTimeRemaining] = useState(0);
+    const [showClaimButton, setShowClaimButton] = useState(false);
+
+    useEffect(() => {
+        let countdownInterval;
+    
+        const startCountdown = () => {
+          const countdownTime = 48 * 60 * 60; // 48 hours in seconds
+          setTimeRemaining(countdownTime);
+    
+          countdownInterval = setInterval(() => {
+            setTimeRemaining((prevTime) => prevTime - 1);
+          }, 1000);
+        };
+
+        
+    const handleRestartCountdown = () => {
+        clearInterval(countdownInterval);
+        setShowClaimButton(false);
+        startCountdown();
+      };
+  
+      startCountdown();
+  
+      return () => {
+        clearInterval(countdownInterval);
+      };
+    }, []);
+
+    
+  useEffect(() => {
+    if (timeRemaining === 0) {
+      setShowClaimButton(true);
+      setTimeout(() => {
+        setShowClaimButton(false);
+        setTimeRemaining(48 * 60 * 60);
+      }, 60 * 60 * 1000); // 1 hour in milliseconds
+    }
+  }, [timeRemaining]);
+
+  const formatTime = (time) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+
+    const formattedHours = String(hours).padStart(2, '0');
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+  };
+  
 
     useEffect(() => {
         const fetchData = async () => {
@@ -70,7 +131,6 @@ const Dashboard = () => {
         fetchData();
     }, []);
 
-
     const formatNumber = (num) => {
         const tier = Math.log10(num) / 3 | 0;
         if (tier === 0) return num.toFixed(0);
@@ -92,9 +152,6 @@ const Dashboard = () => {
         };
         fetchData();
     }, []);
-
-
-
 
     return (
         <div className='w-full lg:pr-16 flex flex-col gap-8'>
@@ -135,19 +192,29 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Your Dividend %</p>
+                        <p className='text-xl'>Your Dividend holdings </p>
+                        
+                        <BalanceOf/>
+                        
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Dividend Holders</p>
+                        <p className='text-xl'>Next Payout</p>
+                        <div>{formatTime(timeRemaining)}</div>                      
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Token Price</p>
+                        <p className='text-xl'>Dividend holders</p>
+                        <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Total Payout</p>
+                        <TotalPayout/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Last Payout</p>
+                        <p className='text-xl'>Claim Rewards</p>
+                        Claim Every 48 hours
+                        {showClaimButton && (
+                            <Claim/>
+                        )}
                     </div>
 
                 </div>
