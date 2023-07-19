@@ -27,7 +27,7 @@ function Navbar() {
         {/* Mobile Nav */}
 
         <div className='md:hidden py-4 justify-between flex items-center'>
-          <div className='w-[40px] h-6'><Image src={logo} alt="Logo" /></div>
+          <div className='w-[40px] h-6'><Image height={100} width={100} src={logo} alt="Logo" /></div>
 
           {mobileMenuOpen === (true) ? (
             <button onClick={() => setMobileMenuOpen(false)}><BsX size={25} /></button>

@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import axios from 'axios';
 import thunderBolt from '../assets/thunder-bolt1.png'
 import Image from 'next/image';
+import { Button } from '@mui/material';
 
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
@@ -133,21 +134,47 @@ const Dashboard = () => {
                             <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
                         )}
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Your Dividend %</p>
+                        {tokenPrice !== null ? (
+                            <p className='text-2xl text-[#14c2a3]'>${tokenPrice}</p>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Dividend Holders</p>
+                        {tokenPrice !== null ? (
+                            <p className='text-2xl text-[#14c2a3]'>${tokenPrice}</p>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Token Price</p>
+                        {tokenPrice !== null ? (
+                            <Button variant='contained'>Claim</Button>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Total Payout</p>
+                        {tokenPrice !== null ? (
+                            <p className='text-2xl text-[#14c2a3]'>${tokenPrice}</p>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex items-center justify-center h-[200px]'>
-                        <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Last Payout</p>
+                        {tokenPrice !== null ? (
+                            <p className='text-2xl text-[#14c2a3]'>${tokenPrice}</p>
+                        ) : (
+                            <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />
+                        )}
                     </div>
+
                 </div>
             </div>
         </div>
