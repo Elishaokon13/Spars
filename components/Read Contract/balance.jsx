@@ -19,7 +19,7 @@ function BalanceOf() {
     }
   
     return <div><span id='balance'>
-    {balance.toString()}
+    {balance ? balance.toString() : 'N/A'}
     </span></div>;
   }
 

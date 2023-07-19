@@ -19,7 +19,7 @@ export default function DividendHolders() {
 }
 
 return <div><span id='balance'>
-    {balance.toString()}
+    {balance ? balance.toString() : 'N/A'}
     </span></div>;
 
 }
