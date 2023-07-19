@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import axios from 'axios';
 import thunderBolt from '../assets/thunder-bolt1.png'
 import Image from 'next/image';
+import contract from '../contract';
 
 import { Button } from '@mui/material';
 
