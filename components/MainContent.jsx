@@ -4,7 +4,7 @@ import { Dashboard } from './index'
 const MainContent = () => {
   return (
     <div>
-      <div className='h-[100vh] text-white lg:py-[4rem] py-[3rem] lg:flex flex-col gap-8 items-start overflow-auto px-6'>
+      <div className='h-[100vh] text-white lg:py-[3rem] py-[3rem] lg:flex flex-col gap-8 items-start overflow-auto px-6'>
         {/* header */}
         <div className='flex flex-col gap-2 lg:mb-0 mb-6 items-start'>
           
