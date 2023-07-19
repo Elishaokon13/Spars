@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import axios from 'axios';
 import thunderBolt from '../assets/thunder-bolt1.png'
 import Image from 'next/image';
+
 import { Button } from '@mui/material';
 
 const Dashboard = () => {
@@ -70,6 +71,32 @@ const Dashboard = () => {
         fetchData();
     }, []);
 
+    // Function to call the claim function
+    const handleClaim = async () => {
+        try {
+            // Check if the user's wallet is connected
+            if (typeof window.ethereum !== 'undefined') {
+                // Request access to the user's Ethereum account
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                // Call the claim function
+                const transaction = await contract.claim();
+                await transaction.wait(); // Wait for the transaction to be mined
+                console.log('Claim successful!');
+            } else {
+                console.log('Ethereum wallet not found. Please install MetaMask.');
+            }
+        } catch (error) {
+            console.error('Error claiming tokens:', error);
+        }
+    };
+
+    // Check for Ethereum provider and enable Ethereum access
+    useEffect(() => {
+        if (typeof window.ethereum !== 'undefined') {
+            window.ethereum.enable(); // Enable Ethereum access for the application
+        }
+    }, []);
 
     const formatNumber = (num) => {
         const tier = Math.log10(num) / 3 | 0;
@@ -147,7 +174,7 @@ const Dashboard = () => {
                         <p className='text-xl'>Total Payout</p>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Last Payout</p>
+                        <button onClick={handleClaim} className='text-xl'>Claim Rewards</button>
                     </div>
 
                 </div>
