@@ -192,6 +192,13 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Claim Rewards(48hours)</p>
+                        
+                        {showClaimButton && (
+                            <Claim/>
+                        )}
+                    </div>
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Your Dividend holdings </p>
                         
                         <BalanceOf/>
@@ -209,13 +216,7 @@ const Dashboard = () => {
                         <p className='text-xl'>Total Payout</p>
                         <TotalPayout/>
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Claim Rewards</p>
-                        Claim Every 48 hours
-                        {showClaimButton && (
-                            <Claim/>
-                        )}
-                    </div>
+                    
 
                 </div>
             </div>
