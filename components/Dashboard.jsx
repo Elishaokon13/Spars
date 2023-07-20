@@ -214,7 +214,7 @@ const Dashboard = () => {
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Total Payout</p>
-                        <TotalPayout/>
+                        <TotalPayout formatNumber={formatNumber} />
                     </div>
                     
 
