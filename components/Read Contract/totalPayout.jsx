@@ -18,9 +18,13 @@ function TotalPayout() {
       return <div>Loading...</div>;
     }
   
-    return <div><span id='balance'>
-    {balance && ethers.utils.formatEther(balance.toString())}
-    </span></div>;
-  }
+    return (
+  <div>
+    <span id='balance'>
+      {balance && Number(ethers.utils.formatEther(balance.toString())).toFixed(2)}
+    </span>
+  </div>
+);
+    
 
   export default TotalPayout;
