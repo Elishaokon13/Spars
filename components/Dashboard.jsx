@@ -213,7 +213,7 @@ const Dashboard = () => {
                         <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Total Payout</p>
+                        <p className='text-xl'>Total BNB Paid</p>
                         <TotalPayout />
                     </div>
                     
