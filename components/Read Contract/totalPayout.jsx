@@ -1,7 +1,7 @@
 import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
 import { useState, useEffect } from 'react';
 import { ethers } from "ethers";
-import thunderBolt from '../assets/thunder-bolt1.png'
+import thunderBolt from '../../assets/thunder-bolt1.png'
 import Image from 'next/image';
 
 
