@@ -12,6 +12,7 @@ import DividendTokenBalanceOf from './Read Contract/dividendToken';
 import DividendHolders from './Read Contract/dividendHolders';
 import TotalPayout from './Read Contract/totalPayout'
 import Claim from './Read Contract/claim';
+import WithdrawableDividend from './Read Contract/withdrawableDividend';
 
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
@@ -214,7 +215,7 @@ const Dashboard = () => {
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Total Payout</p>
-                        <TotalPayout />
+                        <WithdrawableDividend />
                     </div>
                     
 
