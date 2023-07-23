@@ -4,14 +4,17 @@ import { ethers } from "ethers";
 import thunderBolt from '../../assets/thunder-bolt1.png'
 import Image from 'next/image';
 
-export default function getAccountDividendInfo() {
+const GetAccountDividendInfo = () => {
   const { contract } = useContract("0x593649F70f836565e33f0BCe9af9503c243359B3");
   const { data: balance, refetch: refetchBalance, isLoading } = useContractRead(contract, "getAccountDividendInfo")
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       refetchData();
     }, 10000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   const refetchData = () => { refetchBalance() }
@@ -31,3 +34,5 @@ export default function getAccountDividendInfo() {
     </div>
   );
 }
+
+export default GetAccountDividendInfo;
