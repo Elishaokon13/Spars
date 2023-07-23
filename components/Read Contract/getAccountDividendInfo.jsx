@@ -4,9 +4,9 @@ import { ethers } from "ethers";
 import thunderBolt from '../../assets/thunder-bolt1.png'
 import Image from 'next/image';
 
-export default function DividendHolders() {
+export default function getAccountDividendInfo() {
   const { contract } = useContract("0x593649F70f836565e33f0BCe9af9503c243359B3");
-  const { data: balance, refetch: refetchBalance, isLoading } = useContractRead(contract, "getNumberOfDividendTokenHolders")
+  const { data: balance, refetch: refetchBalance, isLoading } = useContractRead(contract, "getAccountDividendInfo")
 
   useEffect(() => {
     setInterval(() => {
@@ -20,8 +20,14 @@ export default function DividendHolders() {
     return <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />;
   }
 
-  return <div><span id='balance'>
-    {balance ? balance.toString() : 'N/A'}
-  Holders </span></div>;
+  // Display the uint256 value from the balance array at index 3
+  const uintValue = balance ? balance[3].toString() : 'N/A';
 
+  return (
+    <div>
+      <span id='balance'>
+        {uintValue} PARS
+      </span>
+    </div>
+  );
 }

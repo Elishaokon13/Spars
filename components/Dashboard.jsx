@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 // newly added
 import BalanceOf from './Read Contract/balance';
+import getAccountDividendInfo from './Read Contract/getAccountDividendInfo';
 import DividendTokenBalanceOf from './Read Contract/dividendToken';
 import DividendHolders from './Read Contract/dividendHolders';
 import TotalPayout from './Read Contract/totalPayout'
@@ -213,8 +214,8 @@ const Dashboard = () => {
                         <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Total BNB Paid</p>
-                        <TotalPayout />
+                        <p className='text-xl'>Total BNB Rewards</p>
+                        <getAccountDividendInfo />
                     </div>
                     
 

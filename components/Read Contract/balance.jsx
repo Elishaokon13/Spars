@@ -1,6 +1,8 @@
 import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
 import { useState, useEffect } from 'react';
 import { ethers } from "ethers";
+import thunderBolt from '../../assets/thunder-bolt1.png'
+import Image from 'next/image';
 
 function BalanceOf() {
   const address = useAddress(); 
@@ -21,7 +23,7 @@ function BalanceOf() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />;
   }
 
   const formattedBalance = balance ? Number(ethers.utils.formatEther(balance.toString())).toLocaleString() : 'ConnectWallet';
@@ -29,7 +31,7 @@ function BalanceOf() {
   return (
     <div>
       <span id='balance'>
-        {formattedBalance}
+        {formattedBalance}PARS
       </span>
     </div>
   );
