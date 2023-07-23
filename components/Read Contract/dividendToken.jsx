@@ -1,5 +1,7 @@
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
+import thunderBolt from '../../assets/thunder-bolt1.png'
+import Image from 'next/image';
 
 export default function DividendTokenBalanceOf() {
     const address = useAddress();
@@ -7,7 +9,7 @@ export default function DividendTokenBalanceOf() {
     const { data, isLoading } = useContractRead(contract, "dividendTokenBalanceOf", [address])
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />;
     }
 
     //const balance = data; 

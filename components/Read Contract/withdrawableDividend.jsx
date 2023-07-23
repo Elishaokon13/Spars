@@ -1,6 +1,8 @@
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
 import { useEffect } from "react";
+import thunderBolt from '../../assets/thunder-bolt1.png'
+import Image from 'next/image';
 
 export default function WithdrawableDividend() {
     const address = useAddress();
@@ -16,7 +18,7 @@ export default function WithdrawableDividend() {
     const refetchData = () => { refetchBalance() }
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Image className='object-cover thunder-bolt' alt='img' src={thunderBolt} />;;
     }
 
     //const balance = data; 
