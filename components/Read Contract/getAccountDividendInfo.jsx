@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const GetAccountDividendInfo = () => {
   const { contract } = useContract("0x593649F70f836565e33f0BCe9af9503c243359B3");
-  const { data: balance, refetch: refetchBalance, isLoading } = useContractRead(contract, "getAccountDividendInfo")
+  const { data: balance, refetch: refetchBalance, isLoading } = useContractRead(contract, "withdrawableDividendOf")
 
   useEffect(() => {
     const interval = setInterval(() => {

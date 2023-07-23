@@ -14,5 +14,5 @@ export default function DividendTokenBalanceOf() {
 
     //const balance = data; 
 
-    return <div>{data}PARS</div>;
+    return <div>{data} PARS</div>;
   }
