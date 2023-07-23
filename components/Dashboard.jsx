@@ -215,13 +215,8 @@ const Dashboard = () => {
                         <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-<<<<<<< HEAD
                         <p className='text-xl'>Total Payout</p>
                         <WithdrawableDividend />
-=======
-                        <p className='text-xl'>Total BNB Rewards</p>
-                        <GetWithdrawableDividend />
->>>>>>> 242214bcfe0b4c9d8c6928aa7777426aff4e05a1
                     </div>
                     
 
