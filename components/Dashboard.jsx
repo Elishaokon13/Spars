@@ -8,10 +8,12 @@ import Image from 'next/image';
 
 // newly added
 import BalanceOf from './Read Contract/balance';
+import GetWithdrawableDividend from './Read Contract/getAccountDividendInfo';
 import DividendTokenBalanceOf from './Read Contract/dividendToken';
 import DividendHolders from './Read Contract/dividendHolders';
 import TotalPayout from './Read Contract/totalPayout'
 import Claim from './Read Contract/claim';
+import WithdrawableDividend from './Read Contract/withdrawableDividend';
 
 const Dashboard = () => {
     const [totalSupply, setTotalSupply] = useState('');
@@ -161,10 +163,10 @@ const Dashboard = () => {
                 <div className='grid lg:grid-cols-2 gap-3 w-full text-white'>
                     <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
-                            <p className='text-xl'>Total suppy</p>
+                            <p className='text-xl'>Total supply</p>
                             <p className='text-2xl'>{totalSupply}B</p>
                         </div>
-                        <p className='text-sm text-[#14c2a3]'>ETH + BSC + POLYGON</p>
+                        <p className='text-sm text-[#14c2a3]'>BSC</p>
                     </div>
                     <div className='rounded-lg bg-[#152a3b] px-6 p-3 border-dashed flex flex-col gap-3 justify-center items-start h-[150px]'>
                         <div className=' flex items-center justify-between w-full'>
@@ -192,6 +194,13 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
+                        <p className='text-xl'>Claim Rewards(48hours)</p>
+                        
+                        {showClaimButton && (
+                            <Claim/>
+                        )}
+                    </div>
+                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
                         <p className='text-xl'>Your Dividend holdings </p>
                         
                         <BalanceOf/>
@@ -206,16 +215,10 @@ const Dashboard = () => {
                         <DividendHolders/>
                     </div>
                     <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Total Payout</p>
-                        <TotalPayout/>
+                        <p className='text-xl'>Total Rewards</p>
+                        <WithdrawableDividend />
                     </div>
-                    <div className='rounded-lg bg-[#152a3b]  border-dashed flex flex-col gap-3 items-center justify-center h-[200px]'>
-                        <p className='text-xl'>Claim Rewards</p>
-                        Claim Every 48 hours
-                        {showClaimButton && (
-                            <Claim/>
-                        )}
-                    </div>
+                    
 
                 </div>
             </div>
